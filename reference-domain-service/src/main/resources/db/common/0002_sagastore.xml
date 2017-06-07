@@ -1,0 +1,36 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet id="1" author="premanandc">
+    <createTable tableName="saga_entry">
+      <column name="saga_id" type="varchar(36)">
+        <constraints primaryKey="true" primaryKeyName="saga_entry_pk"/>
+      </column>
+      <column name="saga_type" type="varchar(255)"/>
+      <column name="revision" type="varchar(255)"/>
+      <column name="serialized_saga" type="blob"/>
+    </createTable>
+  </changeSet>
+  <changeSet id="2" author="premanandc">
+    <createTable tableName="association_value_entry">
+      <column name="id" type="bigint">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="saga_id" type="varchar(36)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="association_key" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="association_value" type="varchar(255)"/>
+      <column name="saga_type" type="varchar(255)"/>
+    </createTable>
+  </changeSet>
+  <changeSet id="3" author="premanandc">
+    <createIndex tableName="association_value_entry" indexName="association_value_entry_idx" unique="false">
+      <column name="saga_id"/>
+      <column name="association_key"/>
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

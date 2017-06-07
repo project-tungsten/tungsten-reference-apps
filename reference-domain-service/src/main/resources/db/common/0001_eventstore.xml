@@ -1,0 +1,67 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet id="1" author="premanandc">
+    <createTable tableName="domain_event_entry">
+      <column autoIncrement="true" name="global_index" type="bigint">
+        <constraints primaryKey="true" primaryKeyName="domain_event_entry_pk"/>
+      </column>
+      <column name="type" type="varchar(255)"/>
+      <column name="aggregate_identifier" type="varchar(36)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="sequence_number" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="event_identifier" type="varchar(36)">
+        <constraints nullable="false" unique="true"/>
+      </column>
+      <column name="time_stamp" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="payload_type" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="payload_revision" type="varchar(255)"/>
+      <column name="payload" type="blob"/>
+      <column name="meta_data" type="blob"/>
+    </createTable>
+  </changeSet>
+  <changeSet id="2" author="premanandc">
+    <createIndex tableName="domain_event_entry" indexName="domain_event_entry_idx" unique="true">
+      <column name="aggregate_identifier"/>
+      <column name="sequence_number"/>
+    </createIndex>
+  </changeSet>
+  <changeSet id="3" author="premanandc">
+    <createTable tableName="snapshot_event_entry">
+      <column name="type" type="varchar(255)">
+        <constraints primaryKey="true" primaryKeyName="snapshot_event_entry_pk"/>
+      </column>
+      <column name="aggregate_identifier" type="varchar(36)">
+        <constraints primaryKey="true" primaryKeyName="snapshot_event_entry_pk"/>
+      </column>
+      <column name="sequence_number" type="bigint">
+        <constraints primaryKey="true" primaryKeyName="snapshot_event_entry_pk"/>
+      </column>
+      <column name="event_identifier" type="varchar(36)">
+        <constraints nullable="false" unique="true"/>
+      </column>
+      <column name="time_stamp" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="payload_type" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="payload_revision" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="payload" type="blob"/>
+      <column name="meta_data" type="blob"/>
+    </createTable>
+  </changeSet>
+  <changeSet id="4" author="premanandc">
+    <createSequence sequenceName="hibernate_sequence"/>
+  </changeSet>
+</databaseChangeLog>
