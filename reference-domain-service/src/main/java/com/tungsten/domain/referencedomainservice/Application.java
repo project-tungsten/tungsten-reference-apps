@@ -26,4 +26,5 @@ public class Application {
   Logger logger(InjectionPoint injectionPoint) {
     return LoggerFactory.getLogger(injectionPoint.getMethodParameter().getContainingClass());
   }
+
 }
