@@ -1,7 +1,7 @@
-package com.tungsten.domain.referencedomainservice.api;
+package com.tungsten.reference.command.api;
 
-import com.tungsten.domain.referencedomainservice.command.CreateSampleAggregateCommand;
-import com.tungsten.domain.referencedomainservice.util.IdGenerator;
+import com.tungsten.reference.command.command.CreateSampleAggregateCommand;
+import com.tungsten.reference.command.util.IdGenerator;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

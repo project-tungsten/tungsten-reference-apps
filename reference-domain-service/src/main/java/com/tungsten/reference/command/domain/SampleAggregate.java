@@ -1,7 +1,7 @@
-package com.tungsten.domain.referencedomainservice.domain;
+package com.tungsten.reference.command.domain;
 
-import com.tungsten.domain.referencedomainservice.command.CreateSampleAggregateCommand;
-import com.tungsten.domain.referencedomainservice.event.SampleAggregateCreatedEvent;
+import com.tungsten.reference.command.command.CreateSampleAggregateCommand;
+import com.tungsten.reference.command.event.SampleAggregateCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
 import org.axonframework.eventsourcing.EventSourcingHandler;

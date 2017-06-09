@@ -3,19 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.tungsten.domain</groupId>
+  <groupId>com.tungsten.reference.apps</groupId>
   <artifactId>reference-domain-service</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>reference-domain-service</name>
+  <name>Project Tungsten Reference Domain Service</name>
   <description>Reference domain service using axon 3 and a relational database</description>
 
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.3.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <groupId>com.tungsten.reference</groupId>
+    <artifactId>tungsten-reference-apps</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
   </parent>
 
   <properties>
@@ -40,10 +39,6 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web-services</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-amqp</artifactId>
     </dependency>
 
@@ -62,6 +57,12 @@
       <groupId>org.axonframework</groupId>
       <artifactId>axon-amqp</artifactId>
       <version>${axonframework.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
 
     <dependency>

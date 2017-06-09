@@ -1,25 +1,23 @@
-package com.tungsten.domain.referencedomainservice;
+package com.tungsten.reference.query;
 
-import com.tungsten.domain.referencedomainservice.util.IdGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InjectionPoint;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 
 @SpringBootApplication
-public class Application {
+@EnableBinding(Sink.class)
+public class QueryApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
+    SpringApplication.run(QueryApplication.class, args);
   }
 
-  @Bean
-  public IdGenerator idGenerator() {
-    return new IdGenerator();
-  }
 
   @Bean
   @Scope("prototype")

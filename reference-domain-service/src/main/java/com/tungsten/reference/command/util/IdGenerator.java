@@ -1,4 +1,4 @@
-package com.tungsten.domain.referencedomainservice.util;
+package com.tungsten.reference.command.util;
 
 import java.util.UUID;
 

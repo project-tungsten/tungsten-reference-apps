@@ -1,4 +1,4 @@
-package com.tungsten.domain.referencedomainservice.command;
+package com.tungsten.reference.command.command;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
