@@ -1,0 +1,128 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Tungsten",
+		"_postman_id": "531ae1a6-0566-6d23-a7e1-43aeb4fb5ef5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a new sample aggregate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 202 - Accepted\"] = responseCode.code === 202;",
+							"",
+							"postman.setGlobalVariable(\"aggregateId\", responseBody);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/aggregates",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"Rock\",\n\t\"lastName\": \"Star\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "4d870aa3-20b3-43a7-bd61-9abd18a987b0",
+					"name": "New sample aggregate",
+					"originalRequest": {
+						"url": "http://localhost:8080/aggregates",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Rock\",\n\t\"lastName\": \"Star\"\n}"
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "plainText",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "36",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 11 Jun 2017 03:28:59 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "X-Application-Context",
+							"key": "X-Application-Context",
+							"value": "reference-domain-service",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"responseTime": 72,
+					"body": "8005c03b-b819-4670-bd65-b9148640592a"
+				}
+			]
+		},
+		{
+			"name": "Change first name on an existing aggregate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 202;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/aggregates/{{aggregateId}}/change-first-name",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstName\": \"Mike\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
