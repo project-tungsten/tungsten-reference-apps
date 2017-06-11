@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Create a new sample aggregate",
+			"name": "Command Side - Create a new aggregate",
 			"event": [
 				{
 					"listen": "test",
@@ -40,7 +40,7 @@
 			},
 			"response": [
 				{
-					"id": "4d870aa3-20b3-43a7-bd61-9abd18a987b0",
+					"id": "63b1b6a7-6b9e-4407-a3a4-8d9e469bc3d5",
 					"name": "New sample aggregate",
 					"originalRequest": {
 						"url": "http://localhost:8080/aggregates",
@@ -94,7 +94,7 @@
 			]
 		},
 		{
-			"name": "Change first name on an existing aggregate",
+			"name": "Command Side - Change first name",
 			"event": [
 				{
 					"listen": "test",
@@ -120,6 +120,17 @@
 					"mode": "raw",
 					"raw": "{\n\"firstName\": \"Mike\"\n}"
 				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Query side - Get sample aggregates ",
+			"request": {
+				"url": "http://localhost:28081/",
+				"method": "GET",
+				"header": [],
+				"body": {},
 				"description": ""
 			},
 			"response": []
