@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SampleAggregateCreatedEvent {
-  private String sampleAggregateId;
+public class FirstNameChangedEvent {
+  private String aggregateId;
   private String firstName;
-  private String lastName;
 }

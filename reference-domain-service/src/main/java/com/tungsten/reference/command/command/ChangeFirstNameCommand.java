@@ -4,18 +4,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.TargetAggregateIdentifier;
-
-import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateSampleAggregateCommand {
-  @NotNull
+public class ChangeFirstNameCommand {
+
+  @NotBlank
   @TargetAggregateIdentifier
-  private String id;
-  @NotNull
+  private String customerId;
+
+  @NotBlank
+  @Length(min = 3)
   private String firstName;
-  @NotNull
-  private String lastName;
+
 }
