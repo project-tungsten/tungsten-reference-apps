@@ -18,7 +18,7 @@ public class SampleAggregateCreatedEventListener {
     this.repository = repository;
   }
 
-  @EventHandler(condition = "headers['axon-message-type']=='com.tungsten.reference.command.event.AggregateCreatedEvent'")
+  @EventHandler(eventType = "com.tungsten.reference.command.event.AggregateCreatedEvent")
   public void onCreate(Map<String, String> event) {
     logger.info("Received create event: {}", event);
     SampleAggregateView view = new SampleAggregateView(event.get("aggregateId"),
@@ -27,7 +27,7 @@ public class SampleAggregateCreatedEventListener {
     repository.save(view);
   }
 
-  @EventHandler(condition = "headers['axon-message-type']=='com.tungsten.reference.command.event.FirstNameChangedEvent'")
+  @EventHandler(eventType = "com.tungsten.reference.command.event.FirstNameChangedEvent")
   public void onUpdate(Map<String, String> event) {
     logger.info("Received update event: {}", event);
     SampleAggregateView view = repository.findOne(event.get("aggregateId"));
