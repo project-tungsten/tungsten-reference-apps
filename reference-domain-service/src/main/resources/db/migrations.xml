@@ -2,5 +2,7 @@
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-  <includeAll path="/db/common"/>
+  <include file="common/0001_eventstore.xml" relativeToChangelogFile="true"/>
+  <include file="common/0002_sagastore.xml" relativeToChangelogFile="true"/>
+  <include file="common/0003_tokenstore.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
