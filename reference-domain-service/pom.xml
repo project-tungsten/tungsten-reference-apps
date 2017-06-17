@@ -11,7 +11,7 @@
   <description>Reference domain service using axon 3 and a relational database</description>
 
   <parent>
-    <groupId>com.tungsten.reference</groupId>
+    <groupId>com.tungsten.reference.apps</groupId>
     <artifactId>tungsten-reference-apps</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>..</relativePath>
