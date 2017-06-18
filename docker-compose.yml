@@ -1,0 +1,13 @@
+version: '3'
+services:
+  domain:
+    image: project-tungsten/reference-domain-service:latest
+    ports:
+    - "8080:8080"
+    environment:
+    - SPRING_RABBITMQ_HOST=rabbit
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+    - "15672:15672"
+    - "5672:5672"
