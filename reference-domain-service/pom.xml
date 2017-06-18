@@ -106,7 +106,7 @@
           <images>
             <image>
               <alias>${project.artifactId}</alias>
-              <name>project-tungsten/${project.artifactId}</name>
+              <name>project-tungsten/${project.artifactId}:${project.version}</name>
               <build>
                 <from>openjdk:8u131-jre-alpine</from>
                 <tags>
@@ -130,6 +130,9 @@
               </build>
             </image>
           </images>
+          <helm>
+            <chart>${project.artifactId}</chart>
+          </helm>
         </configuration>
         <executions>
           <execution>
